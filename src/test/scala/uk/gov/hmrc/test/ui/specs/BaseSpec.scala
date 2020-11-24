@@ -1,0 +1,36 @@
+package uk.gov.hmrc.test.ui.spec
+
+import org.scalatest._
+import org.scalatest.concurrent.Eventually
+import org.scalatest.featurespec.AnyFeatureSpec
+import org.scalatest.matchers.should.Matchers
+import org.scalatestplus.selenium.WebBrowser
+import uk.gov.hmrc.test.ui.driver.BrowserDriver
+import uk.gov.hmrc.webdriver.SingletonDriver
+
+import scala.util.Try
+
+trait BaseSpec
+    extends AnyFeatureSpec
+    with GivenWhenThen
+    with BeforeAndAfterAll
+    with Matchers
+    with WebBrowser
+    with BrowserDriver
+    with Eventually {
+
+  override def afterAll() {
+    Try(SingletonDriver.closeInstance)
+  }
+
+  override def withFixture(test: NoArgTest): Outcome = {
+    val fixture = super.withFixture(test)
+    if (!fixture.isSucceeded) {
+      val screenshotName = test.name.replaceAll(" ", "_").replaceAll(":", "") + ".png"
+      setCaptureDir("./target/test-reports/html-report/screenshots/")
+      capture to screenshotName
+      markup(s"<img src='screenshots/$screenshotName' />")
+    }
+    fixture
+  }
+}
