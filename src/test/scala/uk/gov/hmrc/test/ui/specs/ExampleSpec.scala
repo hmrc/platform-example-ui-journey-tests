@@ -1,36 +1,57 @@
+/*
+ * Copyright 2020 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package uk.gov.hmrc.test.ui.specs
 
-import uk.gov.hmrc.test.ui.pages.{ExamplePage, PayOnlinePage}
-import uk.gov.hmrc.test.ui.spec.BaseSpec
-import uk.gov.hmrc.test.ui.specs.tags.ZapTests
+import uk.gov.hmrc.test.ui.pages.HomePage
 
 class ExampleSpec extends BaseSpec {
 
-  info("Example Spec using ScalaTest")
+  Feature("Examples") {
 
-  Feature("User accessing payments page") {
+    Scenario("Example Journey With Error Pages") {
 
-    Scenario("A logged in user is able to access payment details page", ZapTests) { //Remove ZapTests tag if not required
+      Given("Example page is loaded")
 
-      Given("A logged in user accesses payments page")
+      go to HomePage
+      pageTitle shouldBe HomePage.title
 
-      go to ExamplePage
-      pageTitle shouldBe ExamplePage.title
-      ExamplePage.login(PayOnlinePage.url)
+      When("Click continue without selecting vat return period should return an error")
+      pageTitle                                should be("Enter your VAT return details")
+      click on "continue-button"
+      id("error-summary-heading").element.text should be("There are errors on this page")
 
-      eventually {
-        pageTitle shouldBe PayOnlinePage.title
-      }
+      Then("Select VAT return period and click continue should go to the next page")
+      click on "vatReturnPeriod-annually"
+      click on "continue-button"
+      pageTitle should be("Enter your turnover")
 
-      When("User chooses to pay VAT tax")
-      click on radioButton("vat")
-      click on "next"
-      eventually {
-        pageTitle shouldBe "Choose a way to pay - Pay your VAT - GOV.UK"
-      }
+      When("Click continue without entering amount return an error summary")
+      click on "continue-button"
+      id("error-summary-heading").element.text should be("There are errors on this page")
 
-      Then("Choose a way to pay page is displayed")
-      tagName("h1").element.text shouldBe "Choose a way to pay"
+      When("Enter an amount and click continue")
+      textField("turnover").value = "1000"
+      click on "continue-button"
+      pageTitle should be("Enter your cost of goods")
+
+      When("Click continue without entering cost should return an error summary")
+      click on "continue-button"
+      id("error-summary-heading").element.text should be("There are errors on this page")
     }
+
   }
 }
