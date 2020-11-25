@@ -72,3 +72,21 @@ implicit lazy val webDriver: WebDriver = SingletonDriver.getInstance()
 ```
 
 Additional details on the functionality provided by `webdriver-factory` can be found in the [README](https://github.com/hmrc/webdriver-factory/blob/master/README.md).
+
+
+## Scalafmt
+ This repository uses [Scalafmt](https://scalameta.org/scalafmt/), a code formatter for Scala. The formatting rules configured for this repository are defined within [.scalafmt.conf](.scalafmt.conf).
+ 
+ To apply formatting to this repository using the configured rules in [.scalafmt.conf](.scalafmt.conf) execute:
+ 
+ ```
+ sbt scalafmtAll
+ ```
+ 
+ To check files have been formatted as expected execute:
+ 
+ ```
+ sbt scalafmtCheckAll scalafmtSbtCheck
+ ```
+
+[Visit the official Scalafmt documentation to view a complete list of tasks which can be run.](https://scalameta.org/scalafmt/docs/installation.html#task-keys)
