@@ -6,7 +6,7 @@ Example UI journey tests using ScalaTest.
 ## Initial Setup
 Start services locally using service manager
 
-```sm --start PLATOPS_EXAMPLE_UI_TESTS -r```
+```sm --start PLATFORM_EXAMPLE_UI_TESTS -r```
 
 ## Running Tests - on a developer machine
 
