@@ -17,12 +17,13 @@
 package uk.gov.hmrc.test.ui.specs
 
 import uk.gov.hmrc.test.ui.pages.HomePage
+import uk.gov.hmrc.test.ui.specs.tags.ZapTests
 
 class ExampleSpec extends BaseSpec {
 
   Feature("Examples") {
 
-    Scenario("Example Journey With Error Pages") {
+    Scenario("Example Journey With Error Pages", ZapTests) {
 
       Given("Example page is loaded")
 
