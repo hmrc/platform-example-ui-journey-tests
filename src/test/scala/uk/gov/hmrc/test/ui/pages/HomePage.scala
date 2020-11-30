@@ -16,20 +16,13 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.WebDriver
 import uk.gov.hmrc.test.ui.conf.TestConfiguration
 
-object ExamplePage extends BasePage {
+object HomePage extends BasePage {
 
-  val url: String = TestConfiguration.url("auth-login-stub") + "/gg-sign-in"
-  val title       = "Authority Wizard"
+  val url: String = TestConfiguration.url("example-frontend") + "/vat-return-period"
+  val title       = "Enter your VAT return details"
 
-  def login(redirectionUrl: String)(implicit driver: WebDriver): Unit = {
-    textField("redirectionUrl").value = redirectionUrl
-    singleSel("confidenceLevel").value = "100"
-    singleSel("affinityGroup").value = "Individual"
-    textField("nino").value = "MA000003A"
-    click on CssSelectorQuery(".button")
-  }
+  println(s"Url to home page is: $url")
 
 }
