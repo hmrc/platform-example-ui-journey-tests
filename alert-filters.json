@@ -1,0 +1,16 @@
+{
+    "add": [
+        {
+            "contextId": 1,
+            "url": "http://localhost:9032/assets/3.2.2/javascripts/vendor/modernizr.js",
+            "ruleId": 10027,
+            "newLevel": -1
+        },
+        {
+            "contextId": 1,
+            "url": "http://localhost:9032/assets/3.2.2/javascripts/vendor/modernizr.js",
+            "ruleId": 10021,
+            "newLevel": -1
+        }
+    ]
+}
