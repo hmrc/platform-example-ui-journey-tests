@@ -1,0 +1,12 @@
+{
+    "add": [
+        {
+            "url": "http://localhost:9032/assets/3.2.2/javascripts/vendor/modernizr.js",
+            "ruleId": 10027
+        },
+        {
+            "url": "http://localhost:9032/assets/3.2.2/javascripts/vendor/modernizr.js",
+            "ruleId": 10021
+        }
+    ]
+}
