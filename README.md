@@ -16,7 +16,7 @@ The tests can be run against Chrome or Firefox.
 To run locally using a local ChromeDriver installation, use the command (note this is only for Mac and Linux OS):
 
 ```bash
-./run_tests.sh chrome
+./run_tests.sh local chrome
 ```
 
 To start a Chrome or Firefox docker container use `run-browser-with-docker.sh` script. The script requires 
@@ -26,7 +26,7 @@ To run against a containerised Chrome browser:
 
 ```bash
 ./run-browser-with-docker.sh remote-chrome 
-./run_tests.sh remote-chrome
+./run_tests.sh local remote-chrome
 ```
 Read more about the `run-browser-with-docker.sh`'s functionality [here](run-browser-with-docker.sh)
 
@@ -51,7 +51,7 @@ Jenkins, our Continuous Integration environment, supports only containerised Chr
  So it is not required to start the browser container when running the tests in CI.   
     
 ```bash
-./run_tests.sh remote-chrome
+./run_tests.sh <local|dev|qa|staging> remote-chrome
 ```
 
 ### ZAP Spec
