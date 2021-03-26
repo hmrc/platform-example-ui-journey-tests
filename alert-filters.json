@@ -2,8 +2,8 @@
     "add": [
         {
             "reason" : "Add a reason why this alert from this url is filtered out",
-            "url": "http://localhost:9032/assets/3.2.2/javascripts/vendor/modernizr.js",
-            "ruleId": 10027
+            "url": "http://localhost:9032/assets/3.2.2/javascripts/application.min.js",
+            "ruleId": 829
         },
         {
             "reason" : "Add a reason why this alert from this url is filtered out",
