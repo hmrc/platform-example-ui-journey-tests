@@ -1,10 +1,12 @@
 {
     "add": [
         {
+            "reason": "To demonstrate the use of alert-filers",
             "url": "http://localhost:9032/assets/3.2.2/javascripts/vendor/modernizr.js",
             "ruleId": 10027
         },
         {
+            "reason": "To demonstrate the use of alert-filers",
             "url": "http://localhost:9032/assets/3.2.2/javascripts/vendor/modernizr.js",
             "ruleId": 10021
         }
