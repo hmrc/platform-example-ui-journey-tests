@@ -35,11 +35,7 @@ Read more about the `run-browser-with-docker.sh`'s functionality [here](run-brow
 
 
 ### ZAP Spec
-This test suite also demonstrates zap-automation integration (see ZapSpec). 
- `run_zap_tests.sh` encapsulates executing the ExampleSpec to build the ZAP context (proxying page requests via ZAP), 
- and execution of the zap-automation tool.
- 
-Requires ZAP tool be running at port 11000. 
+Running ZAP spec requires ZAP tool be running at port 11000. 
 
 ```bash
 ./run-browser-with-docker.sh remote-chrome 
