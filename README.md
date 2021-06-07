@@ -40,6 +40,10 @@ Read more about the `run-browser-with-docker.sh`'s functionality [here](run-brow
 ### ZAP Spec
 
 Running ZAP spec requires ZAP tool be running at port 11000.
+See [running ZAP
+locally](https://github.com/hmrc/dast-config-manager#running-zap-locally)
+section in [dast-config-manager](https://github.com/hmrc/dast-config-manager)
+repository.
 
 ```bash
 ./run-browser-with-docker.sh remote-chrome
@@ -60,8 +64,8 @@ Jenkins, our Continuous Integration environment, supports only containerised Chr
 ```
 
 ### ZAP Spec
- [ZapTestsJobBuilder](https://github.com/hmrc/build-jobs/blob/master/src/main/groovy/uk/gov/hmrc/buildjobs/domain/builder/ZapTestsJobBuilder.groovy)
 
+[DynamicApplicationSecurityTestingJobBuilder](https://github.com/hmrc/build-jobs/blob/master/src/main/groovy/uk/gov/hmrc/buildjobs/domain/builder/DynamicApplicationSecurityTestingJobBuilder.groovy)
 takes care of starting a browser and ZAP sidecar container in CI.
 So it is not required to start neither the browser nor ZAP when running the tests in CI.
 
