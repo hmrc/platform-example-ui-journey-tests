@@ -27,12 +27,12 @@ port_mappings="$port_mappings,11000->11000"
 # Defines the BROWSER variable from the argument passed to the script
 #######################################
 if [ -z "${1}" ]; then
-  echo "ERROR: Browser type not specified. Re-run the script with the option remote-chrome or remote-firefox."
-  exit 1
+    echo "ERROR: Browser type not specified. Re-run the script with the option remote-chrome or remote-firefox."
+    exit 1
 elif [ "${1}" = "remote-chrome" ]; then
-  BROWSER="artefacts.tax.service.gov.uk/chrome-with-rinetd:latest"
+    BROWSER="artefacts.tax.service.gov.uk/chrome-with-rinetd:latest"
 elif [ "${1}" = "remote-firefox" ]; then
-  BROWSER="artefacts.tax.service.gov.uk/firefox-with-rinetd:latest"
+    BROWSER="artefacts.tax.service.gov.uk/firefox-with-rinetd:latest"
 fi
 
 #######################################
@@ -51,12 +51,12 @@ fi
 #######################################
 
 docker pull ${BROWSER} \
-  && docker run \
-  -d \
-  --rm \
-  --name "${1}" \
-  -p 4444:4444 \
-  -p 5900:5900 \
-  -e PORT_MAPPINGS="$port_mappings" \
-  -e TARGET_IP='host.docker.internal' \
-  ${BROWSER}
+    && docker run \
+        -d \
+        --rm \
+        --name "${1}" \
+        -p 4444:4444 \
+        -p 5900:5900 \
+        -e PORT_MAPPINGS="$port_mappings" \
+        -e TARGET_IP='host.docker.internal' \
+        ${BROWSER}
